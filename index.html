@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+ <title>BHE Residential Transactional Form</title>
+ <style>
+
+  /*CSS Global Variables*/
+  :root {
+  --clr-primary-1-bg: #F2F2F3;
+  --clr-primary-2-light: #FFFFFF;
+  --clr-primary-3-dark: #000000;
+  --clr-accent-1-link: #017989;
+  --clr-accent-2-cta: #E60D2E;
+  --ff-primary: 'Open Sans', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  --ff-secondary: 'Jost', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  --fw-extrabold: 800;
+  --fw-bold: 700;
+  --fw-regular: 400;
+  --fs-large: 2rem;
+  --fs-medium: 1rem;
+  --fs-small: .875rem;
+  }
+
+  /*Base Mobile Styles*/
+  *,
+  *::before,
+  *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+  html {
+  font-size: 16px;
+  }
+
+  body {
+  font-family: var(--ff-primary);
+  line-height: 1.5;
+  background-color: var(--clr-primary-1-bg);
+  }
+
+  main {
+    padding-inline: 1.25rem;
+    padding-block-end: 1.375rem;
+  }
+
+  header {
+  background-color: var(--clr-primary-3-dark);
+  padding-block: 1.53rem;
+  }
+
+  form, .content__container {
+  background-color: var(--clr-primary-2-light);
+  padding: 1.5rem 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  }
+
+  div, p {
+  margin-block-end: 1rem;
+  }
+
+  h1 {
+  margin-block: 2.5rem 1.5rem;
+  }
+
+  /*Typography Styles*/
+  .title__primary {
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-large);
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-primary-3-dark);
+  }
+
+  .content__regular {
+  font-size: var(--fs-medium);
+  color: var(--clr-primary-3-dark);
+  }
+
+  .content__small {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  color: var(--clr-primary-3-dark);
+  line-height: 1.5;
+  display: inline-block;
+  }
+
+  /*Utility Styles*/
+  .bold {
+    font-weight: var(--fw-bold);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  /*Button Styles*/
+  .flex__btn-group {
+    display: flex;
+    max-width: 310px;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-block-start: 1.5rem;
+  }
+  /*Spacing Utilities*/
+  .space-top-sm {
+    padding-block-start: .5rem;
+  }
+
+  .space-top-md {
+    padding-block-start: 1.5rem;
+  }
+
+  .marb0 {
+    margin-block-end: 0;
+  }
+
+  .cta {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-medium);
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: .725rem 1.58rem;
+    border-radius: 0px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+
+  .outline {
+    color: var(--clr-accent-2-cta);
+    border: 2px solid var(--clr-accent-2-cta);
+  }
+
+  .full {
+    color: var(--clr-primary-2-light);
+    background-color: var(--clr-accent-2-cta);
+  }
+
+  /*Image Styles*/
+  .img__header-logo {
+    width: 200px;
+    height: 31px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /*Link Styles*/
+  .link__profile {
+    color: var(--clr-accent-1-link);
+    text-decoration: underline;
+  }
+
+  /*Form Styles*/
+  fieldset {
+    border: none;
+  }
+
+ /*Custom Checkbox Styles Start*/
+ .custom-checkbox {
+   display: block;
+   position: relative;
+   padding-left: 34px; /* This padding creates space for the custom box */
+   cursor: pointer;
+   user-select: none;
+   font-size: 24px;
+   line-height: 1.2;
+ }
+
+ /* Hide the browser's default checkbox */
+ .custom-checkbox input[type="checkbox"], 
+ input[type="checkbox"] {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 0;
+   width: 0;
+ }
+
+ /* Visual custom box - attached to the label */
+ .custom-checkbox::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: .05em;
+   height: 1em;
+   width: 1em;
+   border: 2px solid var(--clr-primary-3-dark);
+   background-color: var(--clr-primary-2-light);
+   transition: all 0.2s ease;
+   box-sizing: border-box;
+ }
+
+ /* Checkmark - also attached to the label, hidden by default */
+ .custom-checkbox::after {
+   content: "";
+   position: absolute;
+   left: .36em;
+   top: .15em;
+   width: .3em;
+   height: .6em;
+   border: solid var(--clr-primary-3-dark);
+   border-width: 0 2px 2px 0; /* Creates checkmark shape */
+   transform: rotate(45deg); /* Rotates it to look like a checkmark */
+   opacity: 0; /* Hidden by default */
+   transition: opacity 0.2s ease;
+ }
+
+ .custom-checkbox strong {
+  display: block;
+  line-height: 1.5;
+}
+
+ /* --- THE MAGIC PART --- */
+ /* When the input is checked, change the background or border of the box */
+ input[type="checkbox"]:checked + .custom-checkbox::before {
+   background-color: transparent;
+ }
+
+ /* When the input is checked, show the checkmark */
+ input[type="checkbox"]:checked + .custom-checkbox::after {
+   opacity: 1;
+ }
+
+/*Media Query for tablets & larger screens*/
+@media (min-width: 600px) {
+  form, 
+  .content__container {
+    padding-inline: 3.75rem;
+  }
+
+  main {
+    padding-block-end: 4.375rem;
+  }
+
+  .custom-checkbox {
+    line-height: .75;
+  }
+  .content__small {
+    line-height: 1.2;
+  }
+}
+ </style>
+</head>
+
+<body>
+<header>
+  <a href="#" class="header__logo--container"><img class="img__header-logo" src="images/BHE_Logo.png" alt="Mid American Energy Company. Home."></a>
+</header>
+<main>
+  <!--Dynamic h1 content-->
+  <h1 class="title__primary center">Email Preferences</h1>
+  <!--Dynamic h1 content-->
+  <div class="content__container" action="/" method="POST">
+    <p class="content__regular bold">&lt;EMAIL ADDRESS&GT;</p>
+    <p class="content__regular">Sorry to see you go!</p>
+    <p class="content__regular">Please confirm you no longer want to receive the <span class="bold">&lt;Subscription Name&gt;</span> email by selecting the Submit button below.</p>
+    <!--dynamic link content-->
+    <p class="content__regular">To manage all email or text preferences, please log in to your <a class="link__profile" href="#my-account" target="_blank" >My Account profile</a>.</p>
+     <!--dynamic link content-->
+    <div class="flex__btn-group space-top-sm" style="margin-bottom: 0;">
+      <a class="cta outline" href="/">my account</a>
+      <button class="cta full" type="submit">Submit</button>
+    </div>
+     <p class="content__regular space-top-md marb0">(Paperless Billing customers will continue receiving bill notifications)</p>
+  </div>
+</main>
+</body>
+
+</html>
