@@ -114,9 +114,10 @@
   }
 
   /*Button Styles*/
-  .flex__btn-group {
+  .flex__btn-group,
+  .flex__btn-group-center {
     display: flex;
-    max-width: 310px;
+    flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
     flex-wrap: wrap;
@@ -155,6 +156,7 @@
   .outline {
     color: var(--clr-accent-2-cta);
     border: 2px solid var(--clr-accent-2-cta);
+    text-align: center;
   }
 
   .full {
@@ -183,71 +185,18 @@
     border: none;
   }
 
- /*Custom Checkbox Styles Start*/
- .custom-checkbox {
-   display: block;
-   position: relative;
-   padding-left: 34px; /* This padding creates space for the custom box */
-   cursor: pointer;
-   user-select: none;
-   font-size: 24px;
-   line-height: 1.2;
- }
-
- /* Hide the browser's default checkbox */
- .custom-checkbox input[type="checkbox"], 
- input[type="checkbox"] {
-   position: absolute;
-   opacity: 0;
-   cursor: pointer;
-   height: 0;
-   width: 0;
- }
-
- /* Visual custom box - attached to the label */
- .custom-checkbox::before {
-   content: "";
-   position: absolute;
-   left: 0;
-   top: .05em;
-   height: 1em;
-   width: 1em;
-   border: 2px solid var(--clr-primary-3-dark);
-   background-color: var(--clr-primary-2-light);
-   transition: all 0.2s ease;
-   box-sizing: border-box;
- }
-
- /* Checkmark - also attached to the label, hidden by default */
- .custom-checkbox::after {
-   content: "";
-   position: absolute;
-   left: .36em;
-   top: .15em;
-   width: .3em;
-   height: .6em;
-   border: solid var(--clr-primary-3-dark);
-   border-width: 0 2px 2px 0; /* Creates checkmark shape */
-   transform: rotate(45deg); /* Rotates it to look like a checkmark */
-   opacity: 0; /* Hidden by default */
-   transition: opacity 0.2s ease;
- }
-
- .custom-checkbox strong {
-  display: block;
-  line-height: 1.5;
+  .success-checkmark {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
- /* --- THE MAGIC PART --- */
- /* When the input is checked, change the background or border of the box */
- input[type="checkbox"]:checked + .custom-checkbox::before {
-   background-color: transparent;
- }
-
- /* When the input is checked, show the checkmark */
- input[type="checkbox"]:checked + .custom-checkbox::after {
-   opacity: 1;
- }
+.flex-success-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
 /*Media Query for tablets & larger screens*/
 @media (min-width: 600px) {
@@ -258,6 +207,12 @@
 
   main {
     padding-block-end: 4.375rem;
+  }
+
+  .flex__btn-group,
+  .flex__btn-group-center {
+    flex-direction: row;
+    justify-content: center;
   }
 
   .custom-checkbox {
